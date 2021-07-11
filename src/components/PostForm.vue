@@ -2,10 +2,7 @@
   <form @submit.prevent>
     <my-input class="input" type="text" placeholder="Тема" v-model="post.title"/>
     <my-input class="input" type="text" placeholder="Описание" v-model="post.body"/>
-    <my-button
-      @click="createPost"
-      style="align-self: flex-end; margin-top: 10px"
-    >
+    <my-button @click="createPost" style="align-self: flex-end; margin-top: 10px">
       Добавить пост
     </my-button>
   </form>

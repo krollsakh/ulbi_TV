@@ -1,15 +1,19 @@
 <template>
-<div>
-  <h1>Список постов</h1>
-    <post-item v-for="post in posts" :post="post" :key="post.id"/>
-</div>
+  <div v-if="posts.length !== 0">
+    <h1>Список постов</h1>
+    <post-item @remove="$emit('remove', post)" v-for="post in posts" :post="post" :key="post.id"/>
+  </div>
+  <div v-else>
+    <h1>Список постов пуст</h1>
+  </div>
 </template>
 
 <script>
 import PostItem from "./PostItem.vue";
+
 export default {
   name: "PostList",
-  components: { PostItem },
+  components: {PostItem},
   props: {
     posts: {
       type: Array,
@@ -20,4 +24,7 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  margin: 15px 0;
+}
 </style>
